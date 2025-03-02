@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, initial-scale=1.0">
+    <title>高光谱数据模板</title>
+    <style>
+        :root {
+            --tech-blue: #2a3d66;
+            --spectrum-purple: #6c5b7b;
+        }
+        
+        body {
+            background: linear-gradient(145deg, 
+                rgba(42,61,102,1) 0%, 
+                rgba(67,87,133,1) 45%,
+                rgba(108,91,123,1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 667px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            width: 345px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 光谱特征曲线 */
+        .spectrum-chart {
+            height: 180px;
+            background: 
+                linear-gradient(90deg, 
+                    #400080 0%, 
+                    #8000ff 25%, 
+                    #00ffff 50%, 
+                    #00ff00 75%, 
+                    #ffff00 100%);
+            border-radius: 12px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        /* 动态数据点标记 */
+        .data-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ff4757;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,71,87,0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255,71,87,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,71,87,0); }
+        }
+
+        /* 技术参数表格 */
+        .param-table {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 15px;
+            background: rgba(245,245,245,0.8);
+            border-radius: 8px;
+        }
+
+        .param-item {
+            font-size: 12px;
+            color: var(--tech-blue);
+        }
+        .param-item span:first-child {
+            font-weight: bold;
+            color: var(--spectrum-purple);
+        }
+
+        /* 三维数据预览框 */
+        .cube-view {
+            width: 100px;
+            height: 100px;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(108,91,123,0.8) 0%, 
+                    rgba(42,61,102,0.8) 100%);
+            transform: rotateX(45deg) rotateZ(45deg);
+            margin: 15px auto;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: var(--tech-blue); margin: 0 0 10px;">
+            🌐 农田重金属污染监测
+            <span style="font-size:12px; color:#666;">(HYPERION数据)</span>
+        </h2>
+        
+        <div class="spectrum-chart">
+            <div class="data-point" style="left: 30%;"></div>
+            <div class="data-point" style="left: 65%;"></div>
+        </div>
+
+        <div class="param-table">
+            <div class="param-item">
+                <span>波段范围</span><br>400-2500nm
+            </div>
+            <div class="param-item">
+                <span>空间分辨率</span><br>30m
+            </div>
+            <div class="param-item">
+                <span>成像时间</span><br>2024-03-15
+            </div>
+            <div class="param-item">
+                <span>信噪比</span><br>＞200:1
+            </div>
+        </div>
+
+        <div class="cube-view"></div>
+        
+        <div style="color: var(--spectrum-purple); font-size:13px; text-align:center;">
+            #高光谱遥感 #环境监测 #智慧农业 🌱
+        </div>
+    </div>
+</body>
+</html>

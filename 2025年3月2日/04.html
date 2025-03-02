@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=375, initial-scale=1.0">
+    <style>
+        body {
+            background: 
+                radial-gradient(circle at 70% 20%, 
+                    #1a1a2e 0%, 
+                    #16213e 50%, 
+                    #0f3460 100%);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-family: 'Arial Nova', sans-serif;
+        }
+
+        .card {
+            width: 345px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            position: relative;
+        }
+
+        /* 热力图矩阵 */
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 2px;
+            margin: 15px 0;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1;
+            background: 
+                linear-gradient(45deg, 
+                    #00b4d8, 
+                    #0077b6);
+            opacity: 0.6;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .heatmap-cell:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* 数据光谱条 */
+        .spectrum-bar {
+            height: 8px;
+            background: linear-gradient(90deg, 
+                #ff6b6b 0%, 
+                #ffa5a5 25%, 
+                #a5d8ff 50%, 
+                #74c0fc 75%, 
+                #4dabf7 100%);
+            border-radius: 4px;
+            margin: 12px 0;
+        }
+
+        /* 科技感标签 */
+        .tech-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #4dabf7;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #a5d8ff;
+            margin: 5px 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3 style="color: #a5d8ff; margin:0 0 15px;">
+            🛰️ 矿物光谱特征库 V2.1
+            <span style="font-size:12px; color:#74c0fc;">(ENVI 5.6处理)</span>
+        </h3>
+
+        <div class="heatmap">
+            <% for(let i=0; i<100; i++) { %>
+                <div class="heatmap-cell"></div>
+            <% } %>
+        </div>
+
+        <div class="spectrum-bar"></div>
+
+        <div style="color: #fff; font-size:13px; line-height:1.6;">
+            ▶ 包含12类蚀变矿物<br>
+            ▶ 光谱分辨率5nm<br>
+            ▶ 支持SAM/MNF分析<br>
+        </div>
+
+        <div style="margin-top:15px;">
+            <span class="tech-tag">#高光谱找矿</span>
+            <span class="tech-tag">#遥感地质</span>
+            <span class="tech-tag">#光谱解混</span>
+        </div>
+    </div>
+</body>
+</html>
